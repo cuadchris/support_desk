@@ -8,4 +8,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome" });
 });
 
+//All routes from UserRoutes will have /api/users/ in front of it.
+app.use("/api/users", require("./routes/UserRoutes"));
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
