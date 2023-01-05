@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 
 //All routes from UserRoutes will have /api/users/ in front of it.
 app.use("/api/users", require("./routes/UserRoutes"));
+app.use("/api/tickets", require("./routes/TicketRoutes"));
 
 app.use(errorHandler);
 
