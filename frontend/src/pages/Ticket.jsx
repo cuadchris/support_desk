@@ -5,7 +5,11 @@ import { toast } from "react-toastify";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import { closeTicket, getTicket } from "../features/tickets/ticketSlice";
-import { getNotes, reset as notesReset } from "../features/notes/noteSlice";
+import {
+  createNote,
+  getNotes,
+  reset as notesReset,
+} from "../features/notes/noteSlice";
 import NoteItem from "../components/NoteItem";
 import Modal from "react-modal";
 import { FaPlus } from "react-icons/fa";
@@ -51,9 +55,10 @@ const Ticket = () => {
   // Create note submit
   const onNoteSubmit = (e) => {
     e.preventDefault();
-    // just for testing
-    console.log("submitted note");
+    dispatch(createNote({ noteText, ticketId }));
     closeModal();
+    // testing
+    setNoteText("");
   };
 
   // Open/close modal
